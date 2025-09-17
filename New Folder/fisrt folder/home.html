@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEVENT - Asosiy Sahifa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slideY': 'slideY 20s linear infinite',
+                        'fadeInUp': 'fadeInUp 0.8s ease-out',
+                        'fadeInLeft': 'fadeInLeft 0.8s ease-out',
+                        'fadeInRight': 'fadeInRight 0.8s ease-out',
+                        'scaleIn': 'scaleIn 0.5s ease-out',
+                        'gradient': 'gradient 15s ease infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        typing: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' }
+                        },
+                        'blink-caret': {
+                            'from, to': { 'border-color': 'transparent' },
+                            '50%': { 'border-color': 'white' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideY: {
+                            '0%': { transform: 'translateY(100%)' },
+                            '100%': { transform: 'translateY(-100%)' }
+                        },
+                        fadeInUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        fadeInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        'pulse-glow': {
+                            '0%': { 'box-shadow': '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            '100%': { 'box-shadow': '0 0 40px rgba(59, 130, 246, 0.8)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-transparent text-white overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col lg:flex-row justify-center lg:justify-between items-center px-4 lg:px-12 relative">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-20 w-64 h-64 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 2s;"></div>
+        </div>
+
+        <!-- Left Content -->
+        <div class="flex-1 text-center lg:text-left mb-12 lg:mb-0 z-10">
+            <div class="mb-8 animate-fadeInLeft">
+                <span class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-star mr-2"></i>Eng yaxshi ta'lim markazi
+                </span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeInUp">
+                <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    CODEVENT
+                </span>
+            </h1>
+            
+            <div class="h-16 mb-8">
+                <h2 id="typingText" class="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-300 typing-container">
+                    <span class="typing-text"></span><span class="cursor">|</span>
+                </h2>
+            </div>
+            
+            <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl animate-fadeInUp" style="animation-delay: 0.3s;">
+                Zamonaviy dasturlash tillari va texnologiyalarini professional mentorlar bilan o'rganing. 
+                Kelajakda eng talabgir kasblarni egallang!
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style="animation-delay: 0.6s;">
+                <button class="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
+                    <span class="relative z-10"><i class="fas fa-play mr-2"></i>Kurslarni ko'rish</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+                
+                <button class="group px-8 py-4 border-2 border-white/30 backdrop-blur-lg rounded-full font-semibold text-white hover:bg-white/10 transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-info-circle mr-2"></i>Batafsil ma'lumot
+                    <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300 inline-block">→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Content - Floating Course Cards -->
+        <div class="flex-1 lg:flex-none lg:w-96 relative animate-fadeInRight">
+            <div class="relative w-full max-w-sm mx-auto">
+                <!-- Course Cards Container -->
+                <div class="space-y-6">
+                    <!-- Frontend Course -->
+                    <div class="course-card group cursor-pointer transform hover:scale-105 transition-all duration-500 animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-blue-400/50 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-react text-white text-xl"></i>
+                                </div>
+                                <span class="text-blue-400 text-sm font-semibold">Frontend</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">React & JavaScript</h3>
+                            <p class="text-gray-400 text-sm mb-4">Zamonaviy web ilovalar yaratishni o'rganing</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-blue-400">6 oy</span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Course -->
+                    <div class="course-card group cursor-pointer transform hover:scale-105 transition-all duration-500 animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-server text-white text-xl"></i>
+                                </div>
+                                <span class="text-green-400 text-sm font-semibold">Backend</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Node.js & Python</h3>
+                            <p class="text-gray-400 text-sm mb-4">Server tomonini professional darajada o'rganing</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-green-400">8 oy</span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Course -->
+                    <div class="course-card group cursor-pointer transform hover:scale-105 transition-all duration-500 animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-purple-400/50 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-white text-xl"></i>
+                                </div>
+                                <span class="text-purple-400 text-sm font-semibold">Mobile</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Flutter & React Native</h3>
+                            <p class="text-gray-400 text-sm mb-4">Mobil ilovalar yaratishni o'rganing</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-purple-400">7 oy</span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-2 counter" data-target="500">0+</div>
+                    <p class="text-gray-400">Bitiruvchilar</p>
+                </div>
+                
+                <div class="text-center animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-white"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-2 counter" data-target="50">0+</div>
+                    <p class="text-gray-400">Mentorlar</p>
+                </div>
+                
+                <div class="text-center animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-2xl text-white"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-2 counter" data-target="20">0+</div>
+                    <p class="text-gray-400">Kurslar</p>
+                </div>
+                
+                <div class="text-center animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-white"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-2 counter" data-target="95">0%</div>
+                    <p class="text-gray-400">Ish topish</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-fadeInUp">
+                    <i class="fas fa-users mr-2"></i>Bizning Jamoa
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Mentorlar</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                    Tajribali va professional mentorlar bilan o'rganing
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Mentor 1 -->
+                <div class="mentor-card group cursor-pointer animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-3xl"></div>
+                        
+                        <div class="relative mb-6">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-blue-500/50 group-hover:border-blue-400 transition-colors duration-300">
+                                <img src="https://grantgo-mentor.s3.eu-central-1.amazonaws.com/mentors/profile/01JEXPSY8ACBSSATRB18E7G7H5.jpg" 
+                                     alt="Alimardon Toshpo'latov" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-code text-white text-sm"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-white mb-2">Alimardon Toshpo'latov</h3>
+                            <p class="text-blue-400 font-semibold mb-4">Frontend Mentor</p>
+                            
+                            <div class="flex items-center justify-center gap-4 mb-6">
+                                <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-semibold">
+                                    <i class="fas fa-clock mr-1"></i>3+ yil
+                                </span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                <span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">React</span>
+                                <span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">JavaScript</span>
+                                <span class="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="mentor-card group cursor-pointer animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="relative bg-gradient-to-br from-green-500/10 to-teal-500/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-green-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-t-3xl"></div>
+                        
+                        <div class="relative mb-6">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-green-500/50 group-hover:border-green-400 transition-colors duration-300">
+                                <img src="https://grantgo-mentor.s3.eu-central-1.amazonaws.com/mentors/profile/01JEXPSY8ACBSSATRB18E7G7H5.jpg" 
+                                     alt="Baxodir Ramazonov" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-server text-white text-sm"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-white mb-2">Baxodir Ramazonov</h3>
+                            <p class="text-green-400 font-semibold mb-4">Backend Mentor</p>
+                            
+                            <div class="flex items-center justify-center gap-4 mb-6">
+                                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">
+                                    <i class="fas fa-clock mr-1"></i>5+ yil
+                                </span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                <span class="bg-green-500/10 text-green-400 px-2 py-1 rounded text-xs">Node.js</span>
+                                <span class="bg-green-500/10 text-green-400 px-2 py-1 rounded text-xs">Python</span>
+                                <span class="bg-green-500/10 text-green-400 px-2 py-1 rounded text-xs">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mentor 3 -->
+                <div class="mentor-card group cursor-pointer animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="relative bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-purple-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-t-3xl"></div>
+                        
+                        <div class="relative mb-6">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-purple-500/50 group-hover:border-purple-400 transition-colors duration-300">
+                                <img src="https://grantgo-mentor.s3.eu-central-1.amazonaws.com/mentors/profile/01JEXPSY8ACBSSATRB18E7G7H5.jpg" 
+                                     alt="Alisher Raimov" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-paint-brush text-white text-sm"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-white mb-2">Alisher Raimov</h3>
+                            <p class="text-purple-400 font-semibold mb-4">Design Mentor</p>
+                            
+                            <div class="flex items-center justify-center gap-4 mb-6">
+                                <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-semibold">
+                                    <i class="fas fa-clock mr-1"></i>4+ yil
+                                </span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                    <i class="fas fa-star text-sm"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                <span class="bg-purple-500/10 text-purple-400 px-2 py-1 rounded text-xs">UI/UX</span>
+                                <span class="bg-purple-500/10 text-purple-400 px-2 py-1 rounded text-xs">Figma</span>
+                                <span class="bg-purple-500/10 text-purple-400 px-2 py-1 rounded text-xs">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-fadeInUp">
+                    <i class="fas fa-envelope mr-2"></i>Bog'lanish
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Aloqa</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                    Biz bilan bog'laning va professional maslahat oling
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="animate-fadeInLeft">
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-blue-400/50 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-6">Xabar yuborish</h3>
+                        
+                        <form id="contactForm" class="space-y-6" onsubmit="submitForm(event)">
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium">To'liq ism</label>
+                                <input type="text" id="fullName" required 
+                                       class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="Ismingizni kiriting">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium">Telefon raqami</label>
+                                <input type="tel" id="phone" required 
+                                       class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="+998 99 123 45 67">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium">Email manzili</label>
+                                <input type="email" id="email" required 
+                                       class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="example@email.com">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium">Xabar</label>
+                                <textarea id="message" rows="5" required 
+                                          class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
+                                          placeholder="Xabaringizni kiriting..."></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
+                                <span id="submitText">
+                                    <i class="fas fa-paper-plane mr-2"></i>Xabar yuborish
+                                </span>
+                                <span id="submitLoading" class="hidden">
+                                    <i class="fas fa-spinner fa-spin mr-2"></i>Yuborilmoqda...
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="animate-fadeInRight">
+                    <div class="space-y-8">
+                        <!-- Map -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl overflow-hidden hover:border-blue-400/50 transition-all duration-300">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.5!2d69.2401!3d41.2995"
+                                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                    class="grayscale hover:grayscale-0 transition duration-500"></iframe>
+                        </div>
+
+                        <!-- Contact Cards -->
+                        <div class="space-y-6">
+                            <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-blue-400/50 transition-all duration-300">
+                                <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>Bosh ofis
+                                </h4>
+                                <p class="text-gray-400 mb-4">Namangan viloyati, Kosonsoy tumani, Mustaqillik ko'chasi 15</p>
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <a href="tel:+998691234567" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                        <i class="fas fa-phone mr-2"></i>+998 69 123 45 67
+                                    </a>
+                                    <a href="mailto:info@codevent.uz" class="text-purple-400 hover:text-purple-300 transition-colors">
+                                        <i class="fas fa-envelope mr-2"></i>info@codevent.uz
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-300">
+                                <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                                    <i class="fas fa-clock text-green-400 mr-3"></i>Ish vaqti
+                                </h4>
+                                <div class="space-y-2 text-gray-400">
+                                    <p>Dushanba - Juma: 9:00 - 18:00</p>
+                                    <p>Shanba: 9:00 - 15:00</p>
+                                    <p>Yakshanba: Dam olish kuni</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-purple-400/50 transition-all duration-300">
+                                <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                                    <i class="fas fa-share-alt text-purple-400 mr-3"></i>Ijtimoiy tarmoqlar
+                                </h4>
+                                <div class="flex gap-4">
+                                    <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                        <i class="fab fa-telegram text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
+                                        <i class="fab fa-facebook text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                        <i class="fab fa-instagram text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition-colors">
+                                        <i class="fab fa-youtube text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-black/20 backdrop-blur-lg border-t border-white/10">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                        <i class="fas fa-code mr-2"></i>CODEVENT
+                    </h3>
+                </div>
+                <p class="text-gray-400">
+                    &copy; 2025 CODEVENT. Barcha huquqlar himoyalangan.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Animation
+        const words = ["CODEVENT", "LEARNING CENTER", "PROGRAMMING HUB", "YOUR FUTURE"];
+        const typingText = document.querySelector('.typing-text');
+        const cursor = document.querySelector('.cursor');
+        
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentWord.length) {
+                setTimeout(() => isDeleting = true, 1000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+            
+            const speed = isDeleting ? 100 : 150;
+            setTimeout(typeWriter, speed);
+        }
+        
+        typeWriter();
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 200;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + (counter.textContent.includes('%') ? '%' : '+');
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        counter.textContent = target + (counter.textContent.includes('%') ? '%' : '+');
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    
+                    // Start counter animation when statistics section is visible
+                    if (entry.target.querySelector('.counter')) {
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('[class*="animate-"]').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Course cards hover effects
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Contact form submission
+        async function submitForm(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const chatId = '8113300476';
+            const botToken = '8378493244:AAFUkLs16k3GeF1yhpNkP8744G2hycBVEiQ';
+            
+            const text = `🎓 CODEVENT - Yangi xabar!\n\n👤 *Ism:* ${fullName}\n📞 *Telefon:* ${phone}\n📧 *Email:* ${email}\n💬 *Xabar:* ${message}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+            
+            document.getElementById('submitText').classList.add('hidden');
+            document.getElementById('submitLoading').classList.remove('hidden');
+            
+            try {
+                await fetch(url);
+                alert('✅ Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.');
+                document.getElementById('contactForm').reset();
+            } catch (error) {
+                alert('❌ Xabar yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.');
+            } finally {
+                document.getElementById('submitText').classList.remove('hidden');
+                document.getElementById('submitLoading').classList.add('hidden');
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.parallax');
+            
+            parallax.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>

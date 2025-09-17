@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEVENT - Aloqa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-transparent text-white">
+    <!-- Contact Section -->
+    <section class="py-20 px-4 min-h-screen">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-fadeInUp">
+                    <i class="fas fa-envelope mr-2"></i>Bog'lanish
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Aloqa</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
+                    Biz bilan bog'laning va professional maslahat oling
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="animate-fadeInLeft">
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-blue-400/50 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-paper-plane text-blue-400 mr-3"></i>Xabar yuborish
+                        </h3>
+                        
+                        <form id="contactForm" class="space-y-6" onsubmit="submitForm(event)">
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium flex items-center">
+                                    <i class="fas fa-user text-blue-400 mr-2"></i>To'liq ism
+                                </label>
+                                <input type="text" id="fullName" required 
+                                       class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="Ismingizni kiriting">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium flex items-center">
+                                    <i class="fas fa-phone text-green-400 mr-2"></i>Telefon raqami
+                                </label>
+                                <input type="tel" id="phone" required 
+                                       class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="+998 99 123 45 67">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium flex items-center">
+                                    <i class="fas fa-envelope text-purple-400 mr-2"></i>Email manzili
+                                </label>
+                                <input type="email" id="email" required 
+                                       class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="example@email.com">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium flex items-center">
+                                    <i class="fas fa-graduation-cap text-yellow-400 mr-2"></i>Qiziqayotgan kurs
+                                </label>
+                                <select id="course" 
+                                        class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300">
+                                    <option value="">Kursni tanlang</option>
+                                    <option value="frontend">Frontend Development</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="mobile">Mobile Development</option>
+                                    <option value="uiux">UI/UX Design</option>
+                                    <option value="datascience">Data Science</option>
+                                    <option value="devops">DevOps</option>
+                                </select>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-gray-300 font-medium flex items-center">
+                                    <i class="fas fa-comment text-pink-400 mr-2"></i>Xabar
+                                </label>
+                                <textarea id="message" rows="5" required 
+                                          class="w-full bg-white/5 border border-white/20 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none transition-all duration-300"
+                                          placeholder="Xabaringizni kiriting..."></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
+                                <span id="submitText">
+                                    <i class="fas fa-paper-plane mr-2"></i>Xabar yuborish
+                                </span>
+                                <span id="submitLoading" class="hidden">
+                                    <i class="fas fa-spinner fa-spin mr-2"></i>Yuborilmoqda...
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="animate-fadeInRight">
+                    <div class="space-y-8">
+                        <!-- Quick Contact -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-green-400/50 transition-all duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                                <i class="fas fa-phone-alt text-green-400 mr-3"></i>Tezkor bog'lanish
+                            </h3>
+                            <div class="space-y-4">
+                                <a href="tel:+998691234567" class="flex items-center text-white hover:text-green-400 transition-colors duration-300 group">
+                                    <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-500/30 transition-colors duration-300">
+                                        <i class="fas fa-phone text-green-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Telefon raqam</p>
+                                        <p class="text-gray-400">+998 69 123 45 67</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="mailto:info@codevent.uz" class="flex items-center text-white hover:text-blue-400 transition-colors duration-300 group">
+                                    <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-500/30 transition-colors duration-300">
+                                        <i class="fas fa-envelope text-blue-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Email manzil</p>
+                                        <p class="text-gray-400">info@codevent.uz</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="#" class="flex items-center text-white hover:text-purple-400 transition-colors duration-300 group">
+                                    <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-purple-500/30 transition-colors duration-300">
+                                        <i class="fab fa-telegram text-purple-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Telegram</p>
+                                        <p class="text-gray-400">@codevent_uz</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Office Hours -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-yellow-400/50 transition-all duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                                <i class="fas fa-clock text-yellow-400 mr-3"></i>Ish vaqti
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                    <span class="text-gray-300">Dushanba - Juma</span>
+                                    <span class="text-white font-semibold">9:00 - 18:00</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                    <span class="text-gray-300">Shanba</span>
+                                    <span class="text-white font-semibold">9:00 - 15:00</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                    <span class="text-gray-300">Yakshanba</span>
+                                    <span class="text-red-400 font-semibold">Dam olish</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:border-pink-400/50 transition-all duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                                <i class="fas fa-share-alt text-pink-400 mr-3"></i>Ijtimoiy tarmoqlar
+                            </h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <a href="#" class="flex items-center justify-center p-4 bg-blue-600/20 hover:bg-blue-600/30 rounded-xl transition-colors duration-300 group">
+                                    <i class="fab fa-telegram text-2xl text-blue-400 group-hover:scale-110 transition-transform duration-300"></i>
+                                    <span class="ml-2 text-white">Telegram</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-center p-4 bg-blue-500/20 hover:bg-blue-500/30 rounded-xl transition-colors duration-300 group">
+                                    <i class="fab fa-facebook text-2xl text-blue-500 group-hover:scale-110 transition-transform duration-300"></i>
+                                    <span class="ml-2 text-white">Facebook</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-center p-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 hover:from-pink-500/30 hover:to-purple-500/30 rounded-xl transition-colors duration-300 group">
+                                    <i class="fab fa-instagram text-2xl text-pink-400 group-hover:scale-110 transition-transform duration-300"></i>
+                                    <span class="ml-2 text-white">Instagram</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-center p-4 bg-red-600/20 hover:bg-red-600/30 rounded-xl transition-colors duration-300 group">
+                                    <i class="fab fa-youtube text-2xl text-red-500 group-hover:scale-110 transition-transform duration-300"></i>
+                                    <span class="ml-2 text-white">YouTube</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                        Bizning manzilimiz
+                    </h2>
+                    <p class="text-lg text-gray-400">
+                        Markaziy ofisimiz va filiallarimiz
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Map -->
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-3xl overflow-hidden hover:border-blue-400/50 transition-all duration-300">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.5!2d69.2401!3d41.2995"
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                class="grayscale hover:grayscale-0 transition duration-500"></iframe>
+                    </div>
+
+                    <!-- Branch Information -->
+                    <div class="space-y-6">
+                        <!-- Main Office -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-blue-400/50 transition-all duration-300">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Bosh ofis</h4>
+                                    <p class="text-gray-400 mb-3">Namangan viloyati, Kosonsoy tumani, Mustaqillik ko'chasi 15</p>
+                                    <div class="flex flex-col sm:flex-row gap-3">
+                                        <a href="tel:+998691234567" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                            <i class="fas fa-phone mr-2"></i>+998 69 123 45 67
+                                        </a>
+                                        <a href="mailto:kosonsoy@codevent.uz" class="text-purple-400 hover:text-purple-300 transition-colors">
+                                            <i class="fas fa-envelope mr-2"></i>kosonsoy@codevent.uz
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tashkent Branch -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-300">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Toshkent filiali</h4>
+                                    <p class="text-gray-400 mb-3">Toshkent shahar, Yunusobod tumani, Amir Temur ko'chasi 108</p>
+                                    <div class="flex flex-col sm:flex-row gap-3">
+                                        <a href="tel:+998712345678" class="text-green-400 hover:text-green-300 transition-colors">
+                                            <i class="fas fa-phone mr-2"></i>+998 71 234 56 78
+                                        </a>
+                                        <a href="mailto:tashkent@codevent.uz" class="text-purple-400 hover:text-purple-300 transition-colors">
+                                            <i class="fas fa-envelope mr-2"></i>tashkent@codevent.uz
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Samarkand Branch -->
+                        <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:border-yellow-400/50 transition-all duration-300">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Samarqand filiali</h4>
+                                    <p class="text-gray-400 mb-3">Samarqand viloyati, Samarqand shahar, Registon ko'chasi 25</p>
+                                    <div class="flex flex-col sm:flex-row gap-3">
+                                        <a href="tel:+998662345678" class="text-yellow-400 hover:text-yellow-300 transition-colors">
+                                            <i class="fas fa-phone mr-2"></i>+998 66 234 56 78
+                                        </a>
+                                        <a href="mailto:samarkand@codevent.uz" class="text-purple-400 hover:text-purple-300 transition-colors">
+                                            <i class="fas fa-envelope mr-2"></i>samarkand@codevent.uz
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Ko'p so'raladigan savollar
+                    </h2>
+                    <p class="text-lg text-gray-400">
+                        Eng ko'p so'raladigan savollarga javoblar
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:border-blue-400/50 transition-all duration-300">
+                        <button class="w-full p-6 text-left flex items-center justify-between focus:outline-none" onclick="toggleFaq(1)">
+                            <h3 class="text-lg font-semibold text-white">Kurslar qancha davom etadi?</h3>
+                            <i id="faq-icon-1" class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-1" class="hidden px-6 pb-6">
+                            <p class="text-gray-400">Kurslar davomiyligi 5 oydan 9 oygacha. Frontend kursi 6 oy, Backend kursi 8 oy, Mobile development 7 oy davom etadi. Har bir kurs haftada 3 marta 2 soatdan o'tkaziladi.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:border-green-400/50 transition-all duration-300">
+                        <button class="w-full p-6 text-left flex items-center justify-between focus:outline-none" onclick="toggleFaq(2)">
+                            <h3 class="text-lg font-semibold text-white">To'lov qanday amalga oshiriladi?</h3>
+                            <i id="faq-icon-2" class="fas fa-chevron-down text-green-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-2" class="hidden px-6 pb-6">
+                            <p class="text-gray-400">To'lovni naqd, bank kartasi orqali yoki bo'lib to'lash mumkin. Bo'lib to'lash uchun 3, 6, 12 oylik to'lov rejalari mavjud. Dastlabki to'lov 30% dan boshlanadi.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:border-purple-400/50 transition-all duration-300">
+                        <button class="w-full p-6 text-left flex items-center justify-between focus:outline-none" onclick="toggleFaq(3)">
+                            <h3 class="text-lg font-semibold text-white">Kurs tugagandan keyin ish topishga yordam berasizmi?</h3>
+                            <i id="faq-icon-3" class="fas fa-chevron-down text-purple-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-3" class="hidden px-6 pb-6">
+                            <p class="text-gray-400">Ha, albatta! Bizning Job Placement xizmati orqali ishga joylashtirish bo'yicha to'liq yordam beramiz. CV yozish, intervyu tayyorlash va kompaniyalar bilan bog'lanish xizmatlarimiz mavjud.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:border-yellow-400/50 transition-all duration-300">
+                        <button class="w-full p-6 text-left flex items-center justify-between focus:outline-none" onclick="toggleFaq(4)">
+                            <h3 class="text-lg font-semibold text-white">Oldindan dasturlash bilimim bo'lishi kerakmi?</h3>
+                            <i id="faq-icon-4" class="fas fa-chevron-down text-yellow-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-4" class="hidden px-6 pb-6">
+                            <p class="text-gray-400">Yo'q, oldindan bilim shart emas. Bizning kurslarimiz noldan boshlanadi va boshlang'ich daraja uchun mo'ljallangan. Faqat o'rganishga ishtiyoq va kompyuter bilan ishlash ko'nikmalari yetarli.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Contact form submission
+        async function submitForm(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const course = document.getElementById('course').value;
+            const message = document.getElementById('message').value;
+            
+            const chatId = '8113300476';
+            const botToken = '8378493244:AAFUkLs16k3GeF1yhpNkP8744G2hycBVEiQ';
+            
+            const courseText = course ? `\n📚 *Kurs:* ${course}` : '';
+            const text = `🎓 CODEVENT - Yangi xabar!\n\n👤 *Ism:* ${fullName}\n📞 *Telefon:* ${phone}\n📧 *Email:* ${email}${courseText}\n💬 *Xabar:* ${message}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+            
+            document.getElementById('submitText').classList.add('hidden');
+            document.getElementById('submitLoading').classList.remove('hidden');
+            
+            try {
+                await fetch(url);
+                alert('✅ Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.');
+                document.getElementById('contactForm').reset();
+            } catch (error) {
+                alert('❌ Xabar yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.');
+            } finally {
+                document.getElementById('submitText').classList.remove('hidden');
+                document.getElementById('submitLoading').classList.add('hidden');
+            }
+        }
+
+        // FAQ toggle function
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('[class*="animate-"]').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

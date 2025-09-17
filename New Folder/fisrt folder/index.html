@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEVENT - Zamonaviy Ta'lim Markazi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slideInLeft': 'slideInLeft 0.8s ease-out',
+                        'slideInRight': 'slideInRight 0.8s ease-out',
+                        'fadeInUp': 'fadeInUp 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        fadeInUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="m-0 p-0 overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 z-50 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
+        <div class="text-center">
+            <div class="relative">
+                <div class="w-20 h-20 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-6"></div>
+                <div class="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-purple-400 rounded-full animate-spin mx-auto mt-2 ml-2"></div>
+            </div>
+            <h1 class="text-4xl font-bold text-white mb-2 animate-pulse">CODEVENT</h1>
+            <p class="text-purple-200 animate-fadeInUp">Yuklanmoqda...</p>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 animate-gradient bg-[length:400%_400%]"></div>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+            <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute -bottom-8 left-20 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 4s;"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="relative z-40 w-full bg-black/10 backdrop-blur-lg shadow-2xl sticky top-0 border-b border-white/10">
+        <div class="container mx-auto flex items-center justify-between px-4 md:px-6 py-4">
+            <div class="animate-slideInLeft">
+                <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <i class="fas fa-code mr-2"></i>CODEVENT
+                </h1>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none group">
+                <div class="relative w-6 h-6">
+                    <span class="absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out" style="top: 6px;"></span>
+                    <span class="absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out" style="top: 12px;"></span>
+                    <span class="absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out" style="top: 18px;"></span>
+                </div>
+            </button>
+            
+            <!-- Desktop navigation -->
+            <nav class="hidden md:flex gap-8 text-white font-medium animate-slideInRight">
+                <a href="home.html" target="contentFrame" class="relative group py-2 px-4 transition-all duration-300 hover:text-blue-400">
+                    <span class="relative z-10"><i class="fas fa-home mr-2"></i>Asosiy</span>
+                    <div class="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+                <a href="courses.html" target="contentFrame" class="relative group py-2 px-4 transition-all duration-300 hover:text-purple-400">
+                    <span class="relative z-10"><i class="fas fa-graduation-cap mr-2"></i>Kurslar</span>
+                    <div class="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+                <a href="mentors.html" target="contentFrame" class="relative group py-2 px-4 transition-all duration-300 hover:text-pink-400">
+                    <span class="relative z-10"><i class="fas fa-users mr-2"></i>Ustozlar</span>
+                    <div class="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+                <a href="contact.html" target="contentFrame" class="relative group py-2 px-4 transition-all duration-300 hover:text-yellow-400">
+                    <span class="relative z-10"><i class="fas fa-envelope mr-2"></i>Aloqa</span>
+                    <div class="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Mobile navigation menu -->
+        <nav id="mobileMenu" class="md:hidden bg-black/20 backdrop-blur-lg px-4 py-2 hidden border-t border-white/10">
+            <a href="home.html" target="contentFrame" class="block py-3 text-white hover:text-blue-400 transition-colors border-b border-white/5">
+                <i class="fas fa-home mr-3"></i>Asosiy
+            </a>
+            <a href="courses.html" target="contentFrame" class="block py-3 text-white hover:text-purple-400 transition-colors border-b border-white/5">
+                <i class="fas fa-graduation-cap mr-3"></i>Kurslar
+            </a>
+            <a href="mentors.html" target="contentFrame" class="block py-3 text-white hover:text-pink-400 transition-colors border-b border-white/5">
+                <i class="fas fa-users mr-3"></i>Ustozlar
+            </a>
+            <a href="contact.html" target="contentFrame" class="block py-3 text-white hover:text-yellow-400 transition-colors">
+                <i class="fas fa-envelope mr-3"></i>Aloqa
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 m-0 p-0">
+        <iframe
+            id="frame"
+            name="contentFrame"
+            src="home.html"
+            class="w-full border-0 bg-transparent"
+        ></iframe>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
